@@ -1,0 +1,10 @@
+# Start from ISO of Ubuntu 20.04.4
+# ubuntu-20.04.4-desktop-amd64.iso
+
+#Install pip3
+sudo apt install python3-pip
+
+#Install EGI fedcloud client
+sudo pip3 install fedcloudclient
+
+

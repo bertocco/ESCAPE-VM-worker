@@ -1,0 +1,151 @@
+$ export OIDC_ACCESS_TOKEN="eyJraWQiOiJvaWRjIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJlNTRhMmVjM2NlMDdmYzgzMGNlYTRiOTQxOWE1MTQ1YTU5ZDcyMjQ0MjRlYjI3ODk2NzM1M2JhOWRmNzk2MmQ3QGVnaS5ldSIsImF6cCI6ImYzM2U4MjRhLTA3OGQtNDk3Yi1iNzAwLTI1YjBkZjdmYzViNyIsImlzcyI6Imh0dHBzOlwvXC9hYWkuZWdpLmV1XC9vaWRjXC8iLCJleHAiOjE2NDk5NTY2NDQsImlhdCI6MTY0OTk1MzA0NCwianRpIjoiOGI2MjhhMDItZmJlMC00ZGJjLThlMDctOTg3MjM2MDA5NGRjIn0.j1Iq2UxuYX9xv2q3qc77sRP_Y_x3cV2VXRpi2oujneaM23fQj1HuWWY-3jWRjtKthhvkVn8H9mL5HuzP2M0MPMbIQpOfFyzRJ1BP7BlZAGOMS_hrtk15fnmdhha8sOpdI1-ISo0Ao7emuyiBYgATlDyzkUxeDMKFW2-MbgqFFIO6NItwWXzkzhJezO3IFegd7_7tJNqjsm7j2llo_Ev5niGGuuFsZ8HVmhRx4ukKk5ikBq009n0ym73vcDRnKFjnw25EKQ3gKQv0BWYzk2PJbd3eBmCGgN64zzvBL1HQPIVBI_tk63LUudg03j9ZiTwc31R4pkVEQJfXJe8AAk5o9w"
+
+$ fedcloud site list
+100IT
+BIFI
+CESGA
+CESNET-MCC
+CETA-GRID
+CLOUDIFIN
+CYFRONET-CLOUD
+DESY-CC
+GSI-LCG2
+IFCA-LCG2
+IISAS-FedCloud
+IN2P3-IRES
+INFN-CATANIA-STACK
+INFN-CLOUD-BARI
+INFN-CLOUD-CNAF
+INFN-PADOVA-STACK
+Kharkov-KIPT-LCG2
+NCG-INGRID-PT
+SCAI
+TR-FC1-ULAKBIM
+UA-BITP
+UNIV-LILLE
+UPV-GRyCAP
+fedcloud.srce.hr
+
+$ fedcloud openstack --oidc-access-token $OIDC_ACCESS_TOKEN flavor list --vo vo.access.egi.eu --site INFN-PADOVA-STACK
+Site: INFN-PADOVA-STACK, VO: vo.access.egi.eu, command: flavor list
++----+--------------+-------+------+-----------+-------+-----------+
+| ID | Name         |   RAM | Disk | Ephemeral | VCPUs | Is Public |
++----+--------------+-------+------+-----------+-------+-----------+
+| 0  | m1.tiny      |   512 |    1 |         0 |     1 | True      |
+| 1  | m1.small     |  2048 |   20 |         0 |     1 | True      |
+| 10 | 2CPU8GB30HD  |  8192 |   30 |         0 |     2 | False     |
+| 11 | 4CPU16GB30HD | 16384 |   30 |         0 |     4 | False     |
+| 2  | m1.medium    |  4096 |   40 |         0 |     2 | True      |
+| 3  | m1.large     |  8192 |   80 |         0 |     4 | True      |
++----+--------------+-------+------+-----------+-------+-----------+
+
+$ fedcloud openstack --oidc-access-token $OIDC_ACCESS_TOKEN network list --vo vo.access.egi.eu --site INFN-PADOVA-STACK
+Site: INFN-PADOVA-STACK, VO: vo.access.egi.eu, command: network list
++--------------------------------------+----------------------+--------------------------------------+
+| ID                                   | Name                 | Subnets                              |
++--------------------------------------+----------------------+--------------------------------------+
+| a7ccda51-0f01-4ca3-bfb2-4520745fb146 | ext-net              | e470ef36-596d-4502-99fd-c7795a184594 |
+| a95b9e11-eeff-4183-8779-1292a7b04fd6 | int-vo.access.egi.eu | 9588e71e-ffd0-4eeb-a499-d7f557b2e946 |
++--------------------------------------+----------------------+--------------------------------------+
+
+$ fedcloud openstack --oidc-access-token $OIDC_ACCESS_TOKEN image list --vo vo.access.egi.eu --site  fedcloud INFN-PADOVA-STACK
+Site: fedcloud, VO: vo.access.egi.eu, command: image list INFN-PADOVA-STACK
+Error code:  11
+Error message:  VO vo.access.egi.eu not found on site fedcloud
+
+$ fedcloud openstack --oidc-access-token $OIDC_ACCESS_TOKEN network list --vo vo.access.egi.eu --site INFN-PADOVA-STACK
+Site: INFN-PADOVA-STACK, VO: vo.access.egi.eu, command: network list
++--------------------------------------+----------------------+--------------------------------------+
+| ID                                   | Name                 | Subnets                              |
++--------------------------------------+----------------------+--------------------------------------+
+| a7ccda51-0f01-4ca3-bfb2-4520745fb146 | ext-net              | e470ef36-596d-4502-99fd-c7795a184594 |
+| a95b9e11-eeff-4183-8779-1292a7b04fd6 | int-vo.access.egi.eu | 9588e71e-ffd0-4eeb-a499-d7f557b2e946 |
++--------------------------------------+----------------------+--------------------------------------+
+
+$ fedcloud openstack --oidc-access-token $OIDC_ACCESS_TOKEN image list --vo vo.access.egi.eu --site INFN-PADOVA-STACK
+Site: INFN-PADOVA-STACK, VO: vo.access.egi.eu, command: image list
++--------------------------------------+-------------------------------------------------+--------+
+| ID                                   | Name                                            | Status |
++--------------------------------------+-------------------------------------------------+--------+
+| 1fb7d6e2-8209-451f-bf3e-1c9978b8456b | Image for NVIDIA Docker CentOS 7 [CentOS/7/KVM] | active |
+| f90c4ea2-9912-4978-a9d8-55b73eb0ae24 | Ubuntu Server 18.04 LTS                         | active |
+| 59287545-1823-411a-90a3-a06901681727 | cirros                                          | active |
++--------------------------------------+-------------------------------------------------+--------+
+
+$ fedcloud openstack --oidc-access-token $OIDC_ACCESS_TOKEN server create --flavor m1.tiny --image "Ubuntu Server 18.04 LTS" --network int-vo.access.egi.eu TESTESCAPE --vo vo.access.egi.eu --site INFN-PADOVA-STACK
+Site: INFN-PADOVA-STACK, VO: vo.access.egi.eu, command: server create --flavor m1.tiny --image Ubuntu Server 18.04 LTS --network int-vo.access.egi.eu TESTESCAPE
++-----------------------------+----------------------------------------------------------------+
+| Field                       | Value                                                          |
++-----------------------------+----------------------------------------------------------------+
+| OS-DCF:diskConfig           | MANUAL                                                         |
+| OS-EXT-AZ:availability_zone |                                                                |
+| OS-EXT-STS:power_state      | NOSTATE                                                        |
+| OS-EXT-STS:task_state       | scheduling                                                     |
+| OS-EXT-STS:vm_state         | building                                                       |
+| OS-SRV-USG:launched_at      | None                                                           |
+| OS-SRV-USG:terminated_at    | None                                                           |
+| accessIPv4                  |                                                                |
+| accessIPv6                  |                                                                |
+| addresses                   |                                                                |
+| adminPass                   | wpsW5NQkXQLr                                                   |
+| config_drive                |                                                                |
+| created                     | 2022-04-14T16:43:21Z                                           |
+| flavor                      | m1.tiny (0)                                                    |
+| hostId                      |                                                                |
+| id                          | 418a2ff0-068f-4ebe-a65f-089b2fa1bdda                           |
+| image                       | Ubuntu Server 18.04 LTS (f90c4ea2-9912-4978-a9d8-55b73eb0ae24) |
+| key_name                    | None                                                           |
+| name                        | TESTESCAPE                                                     |
+| progress                    | 0                                                              |
+| project_id                  | 5ddb325ca8c2495abfd4e8f230bcd51a                               |
+| properties                  |                                                                |
+| security_groups             | name='default'                                                 |
+| status                      | BUILD                                                          |
+| updated                     | 2022-04-14T16:43:21Z                                           |
+| user_id                     | 47d5a615694341ffb01dfdf3120b6600                               |
+| volumes_attached            |                                                                |
++-----------------------------+----------------------------------------------------------------+
+
+# Check machine properties
+$ fedcloud openstack --oidc-access-token $OIDC_ACCESS_TOKEN server show TESTESCAPE --vo vo.access.egi.eu --site INFN-PADOVA-STACK
+Site: INFN-PADOVA-STACK, VO: vo.access.egi.eu, command: server show TESTESCAPE
++-----------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Field                       | Value                                                                                                                                                                                                                                      |
++-----------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| OS-DCF:diskConfig           | MANUAL                                                                                                                                                                                                                                     |
+| OS-EXT-AZ:availability_zone |                                                                                                                                                                                                                                            |
+| OS-EXT-STS:power_state      | NOSTATE                                                                                                                                                                                                                                    |
+| OS-EXT-STS:task_state       | None                                                                                                                                                                                                                                       |
+| OS-EXT-STS:vm_state         | error                                                                                                                                                                                                                                      |
+| OS-SRV-USG:launched_at      | None                                                                                                                                                                                                                                       |
+| OS-SRV-USG:terminated_at    | None                                                                                                                                                                                                                                       |
+| accessIPv4                  |                                                                                                                                                                                                                                            |
+| accessIPv6                  |                                                                                                                                                                                                                                            |
+| addresses                   |                                                                                                                                                                                                                                            |
+| config_drive                |                                                                                                                                                                                                                                            |
+| created                     | 2022-04-14T16:43:21Z                                                                                                                                                                                                                       |
+| fault                       | {'message': "Build of instance 418a2ff0-068f-4ebe-a65f-089b2fa1bdda aborted: Flavor's disk is too small for requested image. Flavor disk is 1073741824 bytes, image is 2361393152 bytes.", 'code': 500, 'created': '2022-04-14T16:43:50Z'} |
+| flavor                      | m1.tiny (0)                                                                                                                                                                                                                                |
+| hostId                      |                                                                                                                                                                                                                                            |
+| id                          | 418a2ff0-068f-4ebe-a65f-089b2fa1bdda                                                                                                                                                                                                       |
+| image                       | Ubuntu Server 18.04 LTS (f90c4ea2-9912-4978-a9d8-55b73eb0ae24)                                                                                                                                                                             |
+| key_name                    | None                                                                                                                                                                                                                                       |
+| name                        | TESTESCAPE                                                                                                                                                                                                                                 |
+| project_id                  | 5ddb325ca8c2495abfd4e8f230bcd51a                                                                                                                                                                                                           |
+| properties                  |                                                                                                                                                                                                                                            |
+| status                      | ERROR                                                                                                                                                                                                                                      |
+| updated                     | 2022-04-14T16:43:50Z                                                                                                                                                                                                                       |
+| user_id                     | 47d5a615694341ffb01dfdf3120b6600                                                                                                                                                                                                           |
+| volumes_attached            |                                                                                                                                                                                                                                            |
++-----------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+# At the end do not forget to release the resource (delete the machine)
+$ fedcloud openstack --oidc-access-token $OIDC_ACCESS_TOKEN server delete TESTESCAPE --vo vo.access.egi.eu --site INFN-PADOVA-STACK
+Site: INFN-PADOVA-STACK, VO: vo.access.egi.eu, command: server delete TESTESCAPE
+
+# Check that the machine has really been deleted
+$ fedcloud openstack --oidc-access-token $OIDC_ACCESS_TOKEN server show TESTESCAPE --vo vo.access.egi.eu --site INFN-PADOVA-STACK
+Site: INFN-PADOVA-STACK, VO: vo.access.egi.eu, command: server show TESTESCAPE
+Error code:  1
+Error message:  No server with a name or ID of 'TESTESCAPE' exists.
+

@@ -5,4 +5,4 @@ Dave Morris Notes on creating virtual network, router and VM using the Openstack
 https://github.com/wfau/aglais/blob/master/notes/zrq/20211229-02-cloud-transfer.txt
 
 Susana Sanchez e-mail with instructions on "creating a VM in EGI"
-
+./creating_a_VM_in_EGI_instructions.pdf

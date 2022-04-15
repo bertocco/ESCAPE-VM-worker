@@ -1,0 +1,19 @@
+#
+sudo apt install curl
+
+# Preliminary step: get token (by hand) from
+# https://aai.egi.eu/fedcloud/
+# Access token
+# "eyJraWQiOiJvaWRjIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJlNTRhMmVjM2NlMDdmYzgzMGNlYTRiOTQxOWE1MTQ1YTU5ZDcyMjQ0MjRlYjI3ODk2NzM1M2JhOWRmNzk2MmQ3QGVnaS5ldSIsImF6cCI6ImYzM2U4MjRhLTA3OGQtNDk3Yi1iNzAwLTI1YjBkZjdmYzViNyIsImlzcyI6Imh0dHBzOlwvXC9hYWkuZWdpLmV1XC9vaWRjXC8iLCJleHAiOjE2NDk5NDk2NjMsImlhdCI6MTY0OTk0NjA2MywianRpIjoiYjgyNTdmNGYtMjE5ZS00NmI5LWJiOTItYjJiZDc0NjYwOWZkIn0.R4nm14HLR3ud-ABmqsRalBBB6wA2ijUtwVCopOeQlrihOwv5VTPhuewlkf-cp_i92ofmEBmkYyks0yj3aocu5y_Lx3_c4XyS50d1gzUD142q1sAcXoWBa1w71ykZ6Ujpy3am6y1tctr-kPM4H9WlBXCm-_FDjACRVMlGflbeArVTRvrF4iTPMOpPDJwr3gWP6R42Mt_5UdgheL3yBQExI7qtru2vZuRsh0JHBoIPloDwkmbeo854i8VE6rnAPSpgA0WO_BCS_-nX_3MCey23qdgv6DdzGq_bnmiybuw0gLU332UD7XMbtyQPiO-7hRszQOWEHALWTcjqHl2tggZHvw"
+
+# List fedcloud sites
+fedcloud site list
+
+# List flavours of a specific site
+fedcloud openstack --oidc-access-token $OIDC_ACCESS_TOKEN flavor list --vo vo.access.egi.eu --site <SITE_NAME>
+
+# Use the access token to launch Openstack commands
+
+
+
+
