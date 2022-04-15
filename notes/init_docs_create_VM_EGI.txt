@@ -1,0 +1,8 @@
+Dave Morris Notes on running the HGC examples
+https://github.com/Zarquan/lucia/blob/main/notes/zrq/20220123-01-AMIGA-HGC-16.txt
+
+Dave Morris Notes on creating virtual network, router and VM using the Openstack command line client.
+https://github.com/wfau/aglais/blob/master/notes/zrq/20211229-02-cloud-transfer.txt
+
+Susana Sanchez e-mail with instructions on "creating a VM in EGI"
+

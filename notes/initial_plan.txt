@@ -1,0 +1,17 @@
+This repo contains work to provide ESCAPE-ESAP with a mechanism
+to run software in a dedicated Virtual Machine.
+Software selected as use case is:
+https://github.com/AMIGA-IAA/hcg-16
+
+Steps:
+1_ Automate in a script the software installation procedure
+2_ Perform and track the steps needed to create the VM in an Openstack cloud
+	* create network
+	* public IP
+	* create an access user (including keys)
+
+
+* The problem of storage and data access is left behind for a wile (one step 
+at a time)
+
+
