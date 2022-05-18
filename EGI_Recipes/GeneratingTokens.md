@@ -1,8 +1,9 @@
-#Creation and usage of tokens in EGI 
+# Creation and usage of tokens in EGI 
 
 
 
 There are two kinds of tokens:
+
 - Refresh token: It is the main token and it expires in 13 months
 - Access token: it is generated from a Refresh token and it expires in 1 hour.
 
