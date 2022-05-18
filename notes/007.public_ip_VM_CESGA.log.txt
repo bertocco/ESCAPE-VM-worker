@@ -1,0 +1,62 @@
+ # List public IPs in public00 network
+  $ fedcloud openstack "floating ip" list --network public00 --oidc-access-token $OIDC_ACCESS_TOKEN  --vo vo.access.egi.eu --site CESGA
+Site: CESGA, VO: vo.access.egi.eu, command: floating ip list --network public00
++--------------------------------------+---------------------+------------------+--------------------------------------+--------------------------------------+----------------------------------+
+| ID                                   | Floating IP Address | Fixed IP Address | Port                                 | Floating Network                     | Project                          |
++--------------------------------------+---------------------+------------------+--------------------------------------+--------------------------------------+----------------------------------+
+| 09f9bf5c-57e9-4ed5-80b9-462bda351313 | 193.144.46.208      | 192.168.4.29     | cacca95e-7fa6-4bea-ade5-a55319ace0f9 | 6174db12-932f-4ee3-bb3e-7a0ca070d8f2 | 3a8e9d966e644405bf19b536adf7743d |
+| 0eb8e1bf-90bf-410f-8e65-23738a3b4afd | 193.144.46.230      | 192.168.4.13     | a39ac4fc-2720-4112-98b2-aabedc9aa0a3 | 6174db12-932f-4ee3-bb3e-7a0ca070d8f2 | 3a8e9d966e644405bf19b536adf7743d |
+| 100d2677-587a-422f-98e6-c208159213d8 | 193.144.46.209      | None             | None                                 | 6174db12-932f-4ee3-bb3e-7a0ca070d8f2 | 3a8e9d966e644405bf19b536adf7743d |
+| 2d49e51d-801f-4bd4-a199-f695e43c2e2d | 193.144.46.248      | 192.168.4.18     | 50603288-240c-4dee-95d5-3354a8c31c12 | 6174db12-932f-4ee3-bb3e-7a0ca070d8f2 | 3a8e9d966e644405bf19b536adf7743d |
+| 3f45b0a6-d11d-47df-901f-18cdd7a77022 | 193.144.46.216      | None             | None                                 | 6174db12-932f-4ee3-bb3e-7a0ca070d8f2 | 3a8e9d966e644405bf19b536adf7743d |
+| 53af9c79-bf47-49c6-a178-de90abe922cd | 193.144.46.250      | 192.168.4.12     | d497c819-aeb1-4fc2-b29d-d09582a43ac8 | 6174db12-932f-4ee3-bb3e-7a0ca070d8f2 | 3a8e9d966e644405bf19b536adf7743d |
+| 6ca17743-6e1c-41cb-af7f-88d29a38c9a5 | 193.144.46.234      | 192.168.4.5      | 2a091d85-25cb-4395-ab5e-c86645e1d222 | 6174db12-932f-4ee3-bb3e-7a0ca070d8f2 | 3a8e9d966e644405bf19b536adf7743d |
+| 70e585ef-5e02-47f9-8841-cb0ab9d97f1f | 193.144.46.244      | None             | None                                 | 6174db12-932f-4ee3-bb3e-7a0ca070d8f2 | 3a8e9d966e644405bf19b536adf7743d |
+| 788a5548-b701-418f-86e3-30f32454c9a9 | 193.144.46.206      | None             | None                                 | 6174db12-932f-4ee3-bb3e-7a0ca070d8f2 | 3a8e9d966e644405bf19b536adf7743d |
+| b3500e9e-1904-4d8d-8f1a-0f5d02eda54e | 193.144.46.225      | 192.168.4.4      | 70dbb1e6-1acd-46fb-a52f-51ab63adffc3 | 6174db12-932f-4ee3-bb3e-7a0ca070d8f2 | 3a8e9d966e644405bf19b536adf7743d |
+| c474e71a-7611-4365-bc26-7d5ea9a966c8 | 193.144.46.217      | 192.168.4.6      | 4f5f86a2-03b9-4c64-a443-c06f731f5d5c | 6174db12-932f-4ee3-bb3e-7a0ca070d8f2 | 3a8e9d966e644405bf19b536adf7743d |
+| d5c4b665-aac3-45f6-8616-24e5f41cb9b0 | 193.144.46.223      | 192.168.4.23     | 69bdfae6-4eaa-4c96-a224-e1d62a814c16 | 6174db12-932f-4ee3-bb3e-7a0ca070d8f2 | 3a8e9d966e644405bf19b536adf7743d |
+| d5fd0b93-0b3c-4c2d-b376-ea34e75580db | 193.144.46.241      | 192.168.4.32     | 747a9881-a657-427f-9543-8258cdf081c9 | 6174db12-932f-4ee3-bb3e-7a0ca070d8f2 | 3a8e9d966e644405bf19b536adf7743d |
++--------------------------------------+---------------------+------------------+--------------------------------------+--------------------------------------+----------------------------------+
+
+# Associate public IP to VM instance (to be done):
+# $ openstack server add floating ip INSTANCE_NAME_OR_ID FLOATING_IP_ADDRESS
+$ fedcloud openstack server add floating ip ESCAPE_TEST 193.144.46.216 --oidc-access-token $OIDC_ACCESS_TOKEN --vo vo.access.egi.eu --site CESGA 
+Site: CESGA, VO: vo.access.egi.eu, command: server add floating ip ESCAPE_TEST 193.144.46.216
+
+# Verify the public ip is available:
+$  fedcloud openstack --oidc-access-token $OIDC_ACCESS_TOKEN server show  ESCAPE_TEST --vo vo.access.egi.eu --site CESGA
+Site: CESGA, VO: vo.access.egi.eu, command: server show ESCAPE_TEST
++-----------------------------+----------------------------------------------------------+
+| Field                       | Value                                                    |
++-----------------------------+----------------------------------------------------------+
+| OS-DCF:diskConfig           | MANUAL                                                   |
+| OS-EXT-AZ:availability_zone | nova                                                     |
+| OS-EXT-STS:power_state      | Running                                                  |
+| OS-EXT-STS:task_state       | None                                                     |
+| OS-EXT-STS:vm_state         | active                                                   |
+| OS-SRV-USG:launched_at      | 2022-05-11T17:08:30.000000                               |
+| OS-SRV-USG:terminated_at    | None                                                     |
+| accessIPv4                  |                                                          |
+| accessIPv6                  |                                                          |
+| addresses                   | net-vo.access.egi.eu=192.168.4.3, 193.144.46.216         |
+| config_drive                |                                                          |
+| created                     | 2022-05-11T17:06:59Z                                     |
+| flavor                      | cor2mem4hd20 (6e514065-9013-4ce1-908a-0dcc173125e4)      |
+| hostId                      | 870fdbacd9da4518b1f38d7b4bc4483b81ef4839129382d71d0f7597 |
+| id                          | 38833401-76b6-4e54-ac40-9d2875da07f1                     |
+| image                       | cc10fb9b-1878-4638-a7e7-241762de3231                     |
+| key_name                    | sabe_key                                                 |
+| name                        | ESCAPE_TEST                                              |
+| progress                    | 0                                                        |
+| project_id                  | 3a8e9d966e644405bf19b536adf7743d                         |
+| properties                  |                                                          |
+| security_groups             | name='default'                                           |
+| status                      | ACTIVE                                                   |
+| updated                     | 2022-05-11T17:08:30Z                                     |
+| user_id                     | 4190960514cb4429a68b7674bc9b35fe                         |
+| volumes_attached            |                                                          |
++-----------------------------+----------------------------------------------------------+
+
+# Verify access:
+ssh ubuntu@193.144.46.216
