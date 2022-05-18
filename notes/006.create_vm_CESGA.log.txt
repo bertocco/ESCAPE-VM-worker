@@ -1,0 +1,194 @@
+$ fedcloud openstack --oidc-access-token $OIDC_ACCESS_TOKEN flavor list --vo vo.access.egi.eu --site CESGA
+Site: CESGA, VO: vo.access.egi.eu, command: flavor list
++--------------------------------------+--------------------+-------+------+-----------+-------+-----------+
+| ID                                   | Name               |   RAM | Disk | Ephemeral | VCPUs | Is Public |
++--------------------------------------+--------------------+-------+------+-----------+-------+-----------+
+| 0a28df3a-7d12-4372-b97f-fc083952859f | cor24mem60hd60     | 61440 |   60 |         0 |    24 | True      |
+| 13eb41c8-ca84-4603-a12a-84275ea6621d | cor1mem4hd10       |  4096 |   10 |         0 |     1 | True      |
+| 15bb9681-9032-4967-a4c5-859d9898087f | cor8mem32hd40      | 32768 |   40 |         0 |     8 | True      |
+| 1ceccfe4-c69a-4fde-912e-566dd07b8851 | cor8mem16hd40      | 16384 |   40 |         0 |     8 | True      |
+| 256d0b17-0a89-430c-b4d4-7076371e1ca4 | cor2mem2hd120      |  2048 |  120 |         0 |     2 | True      |
+| 26d14547-96f2-4751-a686-f89a9f7cd9cc | cor4mem8hd40       |  8192 |   40 |         0 |     4 | True      |
+| 2f7a3fee-aa79-432f-a72c-fa1ba1a153d0 | cor8mem8hd20       |  8192 |   20 |         0 |     8 | True      |
+| 3b8416aa-ec7f-4b6f-afdf-af6f07162972 | cor4mem32hd200     | 32768 |  200 |         0 |     4 | True      |
+| 42eb9c81-e556-4b63-bc19-4c9fb735e344 | cor2mem2hd20       |  2048 |   20 |         0 |     2 | True      |
+| 4787d9fc-3923-4fc9-b770-30966fc3baee | cor4mem4hd40       |  4096 |   40 |         0 |     4 | True      |
+| 584fb907-ad68-461e-b318-d520c48b1ce4 | cor1mem4hd40ephe40 |  4096 |   40 |        40 |     1 | True      |
+| 599a40e1-902f-4dd9-89e3-38773ff57dcb | cor12mem24hd40     | 24576 |   40 |         0 |    12 | True      |
+| 635c739a-692f-4890-b8fd-d50963bff00e | cor1mem1hd10       |  1024 |   10 |         0 |     1 | True      |
+| 6ba0080d-d71c-4aff-b6f9-b5a9484097f8 | small              |   512 |    2 |         0 |     1 | True      |
+| 6e514065-9013-4ce1-908a-0dcc173125e4 | cor2mem4hd20       |  4096 |   20 |         0 |     2 | True      |
+| 823b9979-9e80-4d12-8d1a-17f32db094c3 | cor8mem32hd80      | 32768 |   80 |         0 |     8 | True      |
+| 85f66ce6-0b66-4889-a0bf-df8dc23ee540 | cor1mem2hd10       |  2048 |   10 |         0 |     1 | True      |
+| 8a5f58d2-fe06-4d53-a10e-041fdb6e4ea5 | cor1mem8hd10       |  8192 |   10 |         0 |     1 | True      |
+| 9b6f817a-49a5-40fe-8996-045075150004 | cor16mem32hd20     | 32766 |   20 |         0 |    16 | True      |
+| a8bb4fef-4b3b-4a9a-99f5-5eb28f3a3fa3 | cor2mem8hd50       |  8192 |   50 |         0 |     2 | True      |
+| a8ddf9c8-eb75-4f1c-9d9f-49c9ea5c2fe5 | cor4mem16hd40      | 16384 |   40 |         0 |     4 | True      |
+| be62450f-c977-42fc-b6ec-ef51610220cd | cor2mem4hd50       |  4096 |   51 |         0 |     2 | True      |
+| c4aa496b-4684-4a86-bd7f-3a67c04b1fa6 | cor24mem50hd50     | 51200 |   50 |         0 |    24 | True      |
+| edac68c3-50ea-42c2-ae1d-76b8beb306b5 | test-bigHD         |  4096 |  237 |         0 |     2 | True      |
+| f4044905-0e96-4ccb-9345-514e985d31a5 | cor8mem32hd20      | 32768 |   20 |         0 |     8 | True      |
++--------------------------------------+--------------------+-------+------+-----------+-------+-----------+
+
+
+
+bertocco@egiwork:~/dev/escape-vm-worker/notes$ fedcloud openstack --oidc-access-token $OIDC_ACCESS_TOKEN network list --vo vo.access.egi.eu --site CESGA
+Site: CESGA, VO: vo.access.egi.eu, command: network list
++--------------------------------------+----------------------+----------------------------------------------------------------------------+
+| ID                                   | Name                 | Subnets                                                                    |
++--------------------------------------+----------------------+----------------------------------------------------------------------------+
+| 12ffb5f7-3e54-433f-86d0-8ffa43b52025 | net-vo.access.egi.eu | 754342b1-92df-4fc8-9499-2ee8b668141f                                       |
+| 6174db12-932f-4ee3-bb3e-7a0ca070d8f2 | public00             | 2f6e7200-99c3-4aa9-9d17-87f9498b45ab, 6af8c4f3-8e2e-405d-adea-c0b374c5bd99 |
+| d5c63175-424c-40b0-99a8-64103e69ee6f | belle2-private       | 2bb410dd-8eaa-4f75-b0dc-61fbdc666048                                       |
++--------------------------------------+----------------------+----------------------------------------------------------------------------+
+
+bertocco@egiwork:~/dev/escape-vm-worker/notes$ fedcloud openstack --oidc-access-token $OIDC_ACCESS_TOKEN image list --vo vo.access.egi.eu --site CESGA
+Site: CESGA, VO: vo.access.egi.eu, command: image list
++--------------------------------------+------------------------------------------------------+--------+
+| ID                                   | Name                                                 | Status |
++--------------------------------------+------------------------------------------------------+--------+
+| 9d22cb3b-e6a3-4467-801a-a68214338b22 | Image for CernVM3 [CentOS/6/QEMU-KVM]                | active |
+| cef9428b-36ae-474d-988d-38114a5292ff | Image for CernVM4 [CentOS/7/OpenstackRAW]            | active |
+| b03e8720-d88a-4939-b93d-23289b8eed6c | Image for CernVM4 [CentOS/7/QEMU-KVM]                | active |
+| b3d7c991-5e9d-43e4-b912-5a55a8e33e7b | Image for EGI CentOS 8 [CentOS/8/VirtualBox]         | active |
+| 48d8bb31-5d76-4aaf-aee6-1bfc75fcef0e | Image for EGI Docker [Ubuntu/18.04/VirtualBox]       | active |
+| 5704825b-7c67-4f8d-80a4-b5c95f17c278 | Image for EGI Ubuntu 18.04 [Ubuntu/18.04/VirtualBox] | active |
+| cc10fb9b-1878-4638-a7e7-241762de3231 | Image for EGI Ubuntu 20.04 [Ubuntu/20.04/VirtualBox] | active |
+| 9022d796-5136-47f8-b90e-aeb57f7412bc | Image for NVIDIA Docker CentOS 7 [CentOS/7/KVM]      | active |
+| 79fadf3f-6092-4bb7-ab78-9a322f0aad33 | cirros                                               | active |
+| 3cf1afc1-530a-4635-bb73-ac3e528937f0 | webfts-snapshot-20220113                             | active |
+| e5fcdf55-9312-4634-8065-0d2136c1e264 | www-chipster-snapshot-210309                         | active |
++--------------------------------------+------------------------------------------------------+--------+
+
+
+
+
+
+$ ssh-keygen -t rsa -b 4096
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/bertocco/.ssh/id_rsa): /home/bertocco/dev/escape-vm-worker/sabe_key
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/bertocco/dev/escape-vm-worker/sabe_key
+Your public key has been saved in /home/bertocco/dev/escape-vm-worker/sabe_key.pub
+The key fingerprint is:
+SHA256:UQGMKzf4WKlQPulMfxqrDw3d71fd5tl4dVMhfvcsTIo bertocco@egiwork
+The key's randomart image is:
++---[RSA 4096]----+
+|       o..o.     |
+|    . . ..   . . |
+|   o o o.   . . .|
+|  . B.*. .   ...o|
+|   =.X..S  . +.o=|
+|    =o+ ..E . +.O|
+|    . .=  .  . =*|
+|     .o  .  . ..+|
+|    .o.   ..   . |
++----[SHA256]-----+
+
+
+
+$ fedcloud  openstack --oidc-access-token $OIDC_ACCESS_TOKEN  keypair create --public-key sabe_key.pub sabe_key --vo vo.access.egi.eu --site CESGA
+Site: CESGA, VO: vo.access.egi.eu, command: keypair create --public-key sabe_key.pub sabe_key
++-------------+-------------------------------------------------+
+| Field       | Value                                           |
++-------------+-------------------------------------------------+
+| created_at  | None                                            |
+| fingerprint | c9:4d:45:e7:5b:40:49:e6:95:40:fa:7b:e0:56:63:a7 |
+| id          | sabe_key                                        |
+| is_deleted  | None                                            |
+| name        | sabe_key                                        |
+| type        | ssh                                             |
+| user_id     | 4190960514cb4429a68b7674bc9b35fe                |
++-------------+-------------------------------------------------+
+
+$ fedcloud openstack  --oidc-access-token $OIDC_ACCESS_TOKEN  server create --flavor cor2mem4hd20  --image "Image for EGI Ubuntu 20.04 [Ubuntu/20.04/VirtualBox]" --network net-vo.access.egi.eu  --key-name sabe_key ESCAPE_TEST  --vo vo.access.egi.eu --site CESGA
+Site: CESGA, VO: vo.access.egi.eu, command: server create --flavor cor2mem4hd20 --image Image for EGI Ubuntu 20.04 [Ubuntu/20.04/VirtualBox] --network net-vo.access.egi.eu --key-name sabe_key ESCAPE_TEST
++-----------------------------+---------------------------------------------------------------------------------------------+
+| Field                       | Value                                                                                       |
++-----------------------------+---------------------------------------------------------------------------------------------+
+| OS-DCF:diskConfig           | MANUAL                                                                                      |
+| OS-EXT-AZ:availability_zone |                                                                                             |
+| OS-EXT-STS:power_state      | NOSTATE                                                                                     |
+| OS-EXT-STS:task_state       | scheduling                                                                                  |
+| OS-EXT-STS:vm_state         | building                                                                                    |
+| OS-SRV-USG:launched_at      | None                                                                                        |
+| OS-SRV-USG:terminated_at    | None                                                                                        |
+| accessIPv4                  |                                                                                             |
+| accessIPv6                  |                                                                                             |
+| addresses                   |                                                                                             |
+| adminPass                   | nQ4aHQtZceLK                                                                                |
+| config_drive                |                                                                                             |
+| created                     | 2022-05-11T17:06:59Z                                                                        |
+| flavor                      | cor2mem4hd20 (6e514065-9013-4ce1-908a-0dcc173125e4)                                         |
+| hostId                      |                                                                                             |
+| id                          | 38833401-76b6-4e54-ac40-9d2875da07f1                                                        |
+| image                       | Image for EGI Ubuntu 20.04 [Ubuntu/20.04/VirtualBox] (cc10fb9b-1878-4638-a7e7-241762de3231) |
+| key_name                    | sabe_key                                                                                    |
+| name                        | ESCAPE_TEST                                                                                 |
+| progress                    | 0                                                                                           |
+| project_id                  | 3a8e9d966e644405bf19b536adf7743d                                                            |
+| properties                  |                                                                                             |
+| security_groups             | name='default'                                                                              |
+| status                      | BUILD                                                                                       |
+| updated                     | 2022-05-11T17:06:59Z                                                                        |
+| user_id                     | 4190960514cb4429a68b7674bc9b35fe                                                            |
+| volumes_attached            |                                                                                             |
++-----------------------------+---------------------------------------------------------------------------------------------+
+
+
+$ fedcloud openstack --oidc-access-token $OIDC_ACCESS_TOKEN subnet list --vo vo.access.egi.eu --site CESGA
+Site: CESGA, VO: vo.access.egi.eu, command: subnet list
++--------------------------------------+-------------------------+--------------------------------------+-----------------+
+| ID                                   | Name                    | Network                              | Subnet          |
++--------------------------------------+-------------------------+--------------------------------------+-----------------+
+| 2bb410dd-8eaa-4f75-b0dc-61fbdc666048 | belle2-subnet           | d5c63175-424c-40b0-99a8-64103e69e$ e6f | 192.168.30.0/24 |
+| 754342b1-92df-4fc8-9499-2ee8b668141f | subnet-vo.access.egi.eu | 12ffb5f7-3e54-433f-86d0-8ffa43b52025 | 192.168.4.0/24  |
++--------------------------------------+-------------------------+--------------------------------------+-----------------+
+
+  
+$ fedcloud openstack "floating ip" create  public00 --vo vo.access.egi.eu --site CESGA
+Site: CESGA, VO: vo.access.egi.eu, command: floating ip create public00
+Error code:  1
+Error message:  Error while executing command: ConflictException: 409, Quota exceeded for resources: ['floatingip'].
+
+  
+$ fedcloud openstack --oidc-access-token $OIDC_ACCESS_TOKEN server show  ESCAPE_TEST --vo vo.access.egi.eu --site CESGA
+Site: CESGA, VO: vo.access.egi.eu, command: server show ESCAPE_TEST
++-----------------------------+---------------------------------------------------------------------------------------------+
+| Field                       | Value                                                                                       |
++-----------------------------+---------------------------------------------------------------------------------------------+
+| OS-DCF:diskConfig           | MANUAL                                                                                      |
+| OS-EXT-AZ:availability_zone | nova                                                                                        |
+| OS-EXT-STS:power_state      | Running                                                                                     |
+| OS-EXT-STS:task_state       | None                                                                                        |
+| OS-EXT-STS:vm_state         | active                                                                                      |
+| OS-SRV-USG:launched_at      | 2022-05-11T17:08:30.000000                                                                  |
+| OS-SRV-USG:terminated_at    | None                                                                                        |
+| accessIPv4                  |                                                                                             |
+| accessIPv6                  |                                                                                             |
+| addresses                   | net-vo.access.egi.eu=192.168.4.3                                                            |
+| config_drive                |                                                                                             |
+| created                     | 2022-05-11T17:06:59Z                                                                        |
+| flavor                      | cor2mem4hd20 (6e514065-9013-4ce1-908a-0dcc173125e4)                                         |
+| hostId                      | 870fdbacd9da4518b1f38d7b4bc4483b81ef4839129382d71d0f7597                                    |
+| id                          | 38833401-76b6-4e54-ac40-9d2875da07f1                                                        |
+| image                       | Image for EGI Ubuntu 20.04 [Ubuntu/20.04/VirtualBox] (cc10fb9b-1878-4638-a7e7-241762de3231) |
+| key_name                    | sabe_key                                                                                    |
+| name                        | ESCAPE_TEST                                                                                 |
+| progress                    | 0                                                                                           |
+| project_id                  | 3a8e9d966e644405bf19b536adf7743d                                                            |
+| properties                  |                                                                                             |
+| security_groups             | name='default'                                                                              |
+| status                      | ACTIVE                                                                                      |
+| updated                     | 2022-05-11T17:08:30Z                                                                        |
+| user_id                     | 4190960514cb4429a68b7674bc9b35fe                                                            |
+| volumes_attached            |                                                                                             |
++-----------------------------+---------------------------------------------------------------------------------------------+
+  
+  
+  
+  
+ 
+
+
